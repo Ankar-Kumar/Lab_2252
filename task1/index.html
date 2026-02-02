@@ -69,6 +69,13 @@
           itemList.appendChild(newItem);
         });
 
+        // for C
+        const userInput = document.getElementById("userInput");
+        const outputDiv = document.getElementById("output");
+
+        userInput.addEventListener("keyup", () => {
+            outputDiv.textContent = userInput.value;
+        });
 
     </script>
 </body>
