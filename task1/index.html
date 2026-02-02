@@ -55,6 +55,21 @@
             document.body.style.backgroundColor = "#CCCCFF";
         });
 
+        // for b
+        const addItemBtn = document.getElementById("addItem");
+        const itemList = document.getElementById("itemList");
+
+        addItemBtn.addEventListener("click", () => {
+            const currentCount = itemList.children.length;
+            const newItem = document.createElement("li");
+
+            newItem.textContent = `Item ${currentCount + 1}`;
+            newItem.classList.add("item");
+
+          itemList.appendChild(newItem);
+        });
+
+
     </script>
 </body>
 </html>
