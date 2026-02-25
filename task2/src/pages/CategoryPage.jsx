@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function CategoryPage() {
+export default function CategoryPage() {
     // usestate for storing the category data
     const [categories, setCategories] = useState([]);
     const fetchCategories = async () => {
@@ -52,4 +52,3 @@ function CategoryPage() {
 		);
 }
 
-export default CategoryPage;

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 export default function ViewFood() {
 	const { category } = useParams();
 	const [meals, setMeals] = useState([]);
 
 	useEffect(() => {
-		fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
-			.then((res) => res.json())
-			.then((data) => setMeals(data.meals));
+		const fetchApi = async () => {
+			const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+			const data = await response.json();
+			setMeals(data.meals);
+    	};
+	fetchApi();
 	}, [category]);
 
 	return (
@@ -26,6 +29,11 @@ export default function ViewFood() {
 							/>
 							<div className='card-body'>
 								<h6>{meal.strMeal}</h6>
+								<Link
+									to={`/meals/${category}/${meal.idMeal}`}
+									className='text-decoration-none'>
+									View Details
+								</Link>
 							</div>
 						</div>
 					</div>
